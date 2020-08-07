@@ -11,36 +11,17 @@ class App extends Component {
 
     // this.state exist
     this.state = {
-      monsters: [{
-        name: "satish"
-      }, {
-        name: "tarun"
-      }, {
-        name: "shital"
-      }, {
-        name: "muthu"
-      }]
+      monsters: [{ id: 1, name: "Satish" }, { id: 2, name: "Satish" }, { id: 3, name: "Satish" }, { id: 4, name: "Satish" }]
     }
+
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p> {this.state.string} </p>
-
-          <button onClick={() => this.setState({ string: 'hello Poonam' })} >click me</button>
-
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        {
+          this.state.monsters.map(monster => <h1 key={monster.id}> {monster.name}</h1>)
+        }
       </div >
     );
   }
