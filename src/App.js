@@ -28,6 +28,11 @@ class App extends Component {
       .then(users => this.setState({ monsters: users }))
   }
 
+  // lexical scoping, arrow function will bind the class function with this scope
+  // else for normal js function we need to specify 
+  // this.handleFilter = this.handleFilter.bind(this); in the contructor 
+
+  handleFilter = (e) => this.setState({ searchValue: e.target.value })
 
   render() {
 
@@ -40,7 +45,7 @@ class App extends Component {
 
         <SearchBox
           placeholder="search monster"
-          handleChange={e => this.setState({ searchValue: e.target.value })}
+          handleChange={this.handleFilter}
         ></SearchBox>
 
         <CardList monsters={filterMonsters}></CardList>
